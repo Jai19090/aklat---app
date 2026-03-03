@@ -1,23 +1,26 @@
-st.markdown(f"""
-<div class="card">
-**📘 Aralin 1 — Pag-unawa sa Teksto**  
-🔗 [Download PDF](https://www.depedcar.ph/sites/default/files/ALS%20English%20Handbook%20-%20Pagbasa%20at%20Pagsulat%20Tungo%20sa%20Pananaliksik%20(Part%20I).pdf)
+# ------------------------------
+# Mga Aralin Tab - Updated
+# ------------------------------
 
-</div>
-""", unsafe_allow_html=True)
-
-st.markdown(f"""
-<div class="card">
-**📙 Aralin 2 — Kritikal na Pagbasa**  
-🔗 [Download PDF](https://bpb-us-e1.wpmucdn.com/sites.wayne.edu/dist/0/21/files/2016/05/Critical-Reading-Guide-1up.pdf)
-
-</div>
-""", unsafe_allow_html=True)
-
-st.markdown(f"""
-<div class="card">
-**📗 Aralin 3 — Pagsusuri ng Impormasyon**  
-🔗 [Download PDF](https://eric.ed.gov/?id=ED410518)
-
-</div>
-""", unsafe_allow_html=True)
+def aralin():
+    st.markdown("<h2>Mga Aralin</h2>", unsafe_allow_html=True)
+    
+    # Real downloadable Filipino PDFs
+    modules = {
+        "Aralin 1 — Panimulang Pagbasa": "https://www.creativeguro.com/2022/09/panimulang-pagbasa-pdf-printable.html",
+        "Aralin 2 — Pagsasanay sa Pagbasa": "https://www.creativeguro.com/2022/10/pagsasanay-sa-pagbasa-booklet.html",
+        "Aralin 3 — Basa at Sagot (Reading Passages)": "https://depedtambayan.org/basa-at-sagot/"
+    }
+    
+    # Display modules as cards with gradient background and download links
+    for module_name, link in modules.items():
+        st.markdown(f"""
+            <div class="card">
+                <b>{module_name}</b><br>
+                🔗 <a href="{link}" target="_blank">I-download o Buksan ang PDF</a>
+            </div>
+        """, unsafe_allow_html=True)
+        
+        # Optional: Add a button to mark completion
+        if st.button(f"Mark Completed: {module_name}"):
+            st.success(f"Natapos mo na ang {module_name}!")
