@@ -1,0 +1,32 @@
+import streamlit as st
+
+st.set_page_config(page_title="Quizzes", layout="wide")
+
+if "grades" not in st.session_state:
+    st.session_state.grades = {}
+
+st.title("📝 Literacy Quiz")
+
+st.markdown('<div class="box">', unsafe_allow_html=True)
+
+q1 = st.radio("1. Ano ang pangunahing ideya ng teksto?",
+              ["Maliit na detalye",
+               "Sentral na mensahe",
+               "Walang kahulugan"])
+
+q2 = st.radio("2. Ano ang layunin ng kritikal na pagbasa?",
+              ["Basta magbasa lamang",
+               "Unawain at suriin ang teksto",
+               "Kabisa lamang"])
+
+if st.button("Submit Quiz"):
+    score = 0
+    if q1 == "Sentral na mensahe":
+        score += 50
+    if q2 == "Unawain at suriin ang teksto":
+        score += 50
+
+    st.session_state.grades["Literacy Quiz"] = score
+    st.success(f"Your Score: {score}/100")
+
+st.markdown('</div>', unsafe_allow_html=True)

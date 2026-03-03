@@ -1,0 +1,14 @@
+import streamlit as st
+
+st.set_page_config(page_title="Assignments", layout="wide")
+
+st.title("📂 Submit Assignment")
+
+st.markdown('<div class="box">', unsafe_allow_html=True)
+
+file = st.file_uploader("Upload your literacy assignment")
+
+if file:
+    st.success("File uploaded successfully!")
+
+st.markdown('</div>', unsafe_allow_html=True)

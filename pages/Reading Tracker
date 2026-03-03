@@ -1,0 +1,19 @@
+import streamlit as st
+
+st.set_page_config(page_title="Reading Tracker", layout="wide")
+
+if "reading_progress" not in st.session_state:
+    st.session_state.reading_progress = 0
+
+st.title("📈 Reading Progress Tracker")
+
+st.markdown('<div class="box">', unsafe_allow_html=True)
+
+progress = st.slider("Update Reading Progress",
+                     0, 100,
+                     st.session_state.reading_progress)
+
+st.session_state.reading_progress = progress
+st.progress(progress)
+
+st.markdown('</div>', unsafe_allow_html=True)

@@ -1,0 +1,23 @@
+st.markdown(f"""
+<div class="card">
+**📘 Aralin 1 — Pag-unawa sa Teksto**  
+🔗 [Download PDF](https://www.depedcar.ph/sites/default/files/ALS%20English%20Handbook%20-%20Pagbasa%20at%20Pagsulat%20Tungo%20sa%20Pananaliksik%20(Part%20I).pdf)
+
+</div>
+""", unsafe_allow_html=True)
+
+st.markdown(f"""
+<div class="card">
+**📙 Aralin 2 — Kritikal na Pagbasa**  
+🔗 [Download PDF](https://bpb-us-e1.wpmucdn.com/sites.wayne.edu/dist/0/21/files/2016/05/Critical-Reading-Guide-1up.pdf)
+
+</div>
+""", unsafe_allow_html=True)
+
+st.markdown(f"""
+<div class="card">
+**📗 Aralin 3 — Pagsusuri ng Impormasyon**  
+🔗 [Download PDF](https://eric.ed.gov/?id=ED410518)
+
+</div>
+""", unsafe_allow_html=True)
