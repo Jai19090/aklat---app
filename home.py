@@ -163,24 +163,32 @@ def bahay():
         st.write("Magpatuloy sa pagsasanay upang makamit ang mga badge!")
     st.markdown('</div>', unsafe_allow_html=True)
 
-# ---------- Mga Aralin (Modules) ----------
+# ------------------------------
+# Mga Aralin Tab - Updated
+# ------------------------------
+
 def aralin():
-    st.subheader("📖 Mga Aralin sa Pagbasa")
-
+    st.markdown("<h2>Mga Aralin</h2>", unsafe_allow_html=True)
+    
+    # Real downloadable Filipino PDFs
     modules = {
-        "Aralin 1 — Pag-unawa sa Teksto": "https://www.depedcar.ph/sites/default/files/ALS%20English%20Handbook%20-%20Pagbasa%20at%20Pagsulat%20Tungo%20sa%20Pananaliksik%20(Part%20I).pdf",
-        "Aralin 2 — Kritikal na Pagbasa": "https://bpb-us-e1.wpmucdn.com/sites.wayne.edu/dist/0/21/files/2016/05/Critical-Reading-Guide-1up.pdf",
-        "Aralin 3 — Pagsusuri at Pag-aanalisa ng Impormasyon": "https://eric.ed.gov/?id=ED410518"
+        "Aralin 1 — Panimulang Pagbasa": "https://www.creativeguro.com/2022/09/panimulang-pagbasa-pdf-printable.html",
+        "Aralin 2 — Pagsasanay sa Pagbasa": "https://www.creativeguro.com/2022/10/pagsasanay-sa-pagbasa-booklet.html",
+        "Aralin 3 — Basa at Sagot (Reading Passages)": "https://depedtambayan.org/basa-at-sagot/"
     }
-
-    for module, pdf_link in modules.items():
-        status = st.session_state.modules_status.get(module, "Hindi pa nasimulan")
-        st.markdown(f'<div class="card"><b>{module}</b><br>Status: {status}<br>🔗 <a href="{pdf_link}" target="_blank">I-download ang PDF</a></div>', unsafe_allow_html=True)
-        if st.button(f"Mark as Completed - {module}", key=f"complete_{module}"):
-            st.session_state.modules_status[module] = "Natapos na"
-            # Update reading progress +20% per module
-            st.session_state.reading_progress = min(100, st.session_state.reading_progress + 20)
-            st.success(f"{module} ay natapos na! 📈 Reading progress tumaas ng 20%")
+    
+    # Display modules as cards with gradient background and download links
+    for module_name, link in modules.items():
+        st.markdown(f"""
+            <div class="card">
+                <b>{module_name}</b><br>
+                🔗 <a href="{link}" target="_blank">I-download o Buksan ang PDF</a>
+            </div>
+        """, unsafe_allow_html=True)
+        
+        # Optional: Add a button to mark completion
+        if st.button(f"Mark Completed: {module_name}"):
+            st.success(f"Natapos mo na ang {module_name}!")
 
             # ---------- Mga Pagsusulit (Quizzes) ----------
 def pagsusulit():
@@ -278,4 +286,5 @@ page_funcs = {
 }
 
 # Then display the selected page
+
 page_funcs[st.session_state.page]()
